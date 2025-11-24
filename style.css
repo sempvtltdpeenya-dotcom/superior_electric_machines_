@@ -1,0 +1,1021 @@
+/* CSS Variables for branding consistency */
+/* Default (Light) Theme Variables */
+/* CSS Variables for branding consistency */
+/* CSS Variables for branding consistency (Light Theme Defaults) */
+:root {
+    --primary-color: #0056b3; /* A strong, industrial blue */
+    --secondary-color: #2c3e50; /* Dark slate grey for strong text/headings */
+    --accent-color: #f39c12; /* A subtle orange for calls to action */
+    --white: #ffffff;
+    --light-grey: #f8f8f8; /* Very light grey for subtle backgrounds */
+    --medium-grey: #e0e0e0; /* Medium grey for borders */
+    --dark-grey: #666666; /* Dark grey for secondary text */
+
+    --background-light: var(--white); /* Main page background */
+    --background-medium: var(--light-grey); /* For sections that need slight contrast */
+    --text-dark: var(--secondary-color); /* Main text color */
+    --text-medium: var(--dark-grey); /* Lighter text for paragraphs/subtitles */
+    --header-bg: var(--white);
+    --nav-link-color: var(--secondary-color);
+    --nav-link-hover: var(--primary-color);
+    --card-bg: var(--white);
+    --card-border: var(--medium-grey);
+
+    /* --- Specific Footer Colors (These are fixed, not theme-dependent) --- */
+    --footer-dark-bg: #0b1a47; /* Specific dark blue for the footer background */
+    --footer-light-text: var(--white); /* White text for contrast on dark footer */
+    --footer-light-link: #a0aec0; /* Lighter grey for links on dark footer */
+    --footer-bottom-text-color: rgba(255, 255, 255, 0.7); /* Slightly faded white for bottom bar */
+    --footer-border-line: rgba(255, 255, 255, 0.1); /* Subtle white border for separators */
+
+    --scroll-to-top-bg: var(--primary-color);
+    --scroll-to-top-color: var(--white);
+
+    --max-width: 1200px;
+    --font-stack: 'Roboto', sans-serif;
+}
+
+/* Dark Theme Variables - Applied when .dark-theme class is present on <body> */
+body.dark-theme {
+    --background-primary: #1a202c; /* Darker main background */
+    --background-secondary: #2d3748; /* Darker secondary background */
+    --text-primary: #e2e8f0; /* Light text for dark background */
+    --text-secondary: #a0aec0; /* Lighter text for paragraphs/subtitles */
+    --header-background: #2d3748;
+    --nav-link-color: #e2e8f0;
+    --nav-link-hover: var(--primary-brand-color);
+    --card-background: #2d3748;
+    --card-border-color: #4a5568;
+    --footer-background: #1a202c;
+    --footer-text-color: #a0aec0;
+}
+}
+
+/* Basic Reset to ensure consistent styling across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    color: var(--secondary-color);
+    background-color: var(--white);
+    scroll-behavior: smooth; 
+}
+
+/* Utility Classes */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-pad {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    color: #666;
+}
+
+/* Main Header & Navigation */
+.main-header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed; /* Makes the header stick to the top */
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensures header stays on top of other content */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Logo Styling */
+.logo-link {
+    display: flex; 
+    align-items: center;
+    height: 60px; /* Provides a clear height for the logo area */
+}
+
+.company-logo {
+    height: 55px; /* Adjust this value (e.g., 40px, 50px, 60px) to control the logo's height */
+    width: auto; /* Maintain aspect ratio */
+    display: block; 
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none; /* Removes bullet points from list items */
+    align-items: center;
+}
+
+.main-nav li {
+    margin-left: 30px; /* Space between navigation items */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--primary-color);
+}
+
+.btn-contact {
+    background-color: var(--primary-color);
+    color: var(--white) !important; 
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none; 
+    transition: background-color 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Hero Section Styling (with Video) */
+.hero-section {
+    height: 90vh; /* Takes up 90% of the viewport height */
+    position: relative; /* Crucial for positioning video and overlay */
+    display: flex;
+    align-items: center;
+    margin-top: 60px; /* Offset to prevent content from being hidden by the fixed header */
+    background-color: var(--secondary-color); /* Fallback color if video fails */
+    overflow: hidden; /* Hides any part of the video that goes beyond the section */
+}
+
+/* Quality & Vision Section Styling */
+.quality-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* FORCES 4 EQUAL COLUMNS */
+    gap: 30px; /* Space between cards */
+    margin-top: 50px;
+    /* text-align: center; -- Remove this, it can conflict with text-align: left on paragraphs */
+}}
+
+.qv-card {
+    background-color: var(--background-light);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers items horizontally in a flex column */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* <--- ADD THIS LINE to center all text/inline content */
+}
+
+.qv-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+}
+
+.qv-icon {
+    width: 60px; /* Size of the icon images */
+    height: 60px;
+    object-fit: contain; /* Ensure icons fit without distortion */
+    margin-bottom: 20px;
+    /* REMOVE OR COMMENT OUT THIS LINE: filter: grayscale(100%) brightness(0) invert(0.2); */
+}
+
+.qv-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color); /* Highlight headings with primary color */
+    margin-bottom: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.qv-card p {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+    text-align: left; /* Text aligns left within the card */
+}
+
+/* Responsive adjustments for quality-vision section */
+@media (max-width: 992px) {
+    .quality-vision-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust columns for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .quality-vision-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small mobile */
+        gap: 20px;
+    }
+    .qv-card {
+        padding: 25px;
+    }
+    .qv-card h3 {
+        font-size: 1.3rem;
+    }
+}
+/* Certifications Section Styling */
+.certifications-section {
+    background-color: var(--background-medium); /* This should be the light grey */
+    /* ... rest of the styles ... */
+}
+.certification-logos {
+    display: flex; /* <-- THIS IS THE KEY */
+    flex-wrap: wrap; /* Allow logos to wrap to the next line if needed */
+    justify-content: center; /* Center the entire set of logos horizontally */
+    align-items: flex-start; /* Aligns items to the top if they have varying heights */
+    gap: 30px; /* Space between each logo item */
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.certification-item {
+    display: flex;
+    flex-direction: column; /* Stack image, text, span vertically within each item */
+    align-items: center; /* Center content within each individual item */
+    text-align: center;
+    flex-basis: 150px; /* Give each item a base width for consistent spacing */
+    max-width: 180px; /* Maximum width for each item */
+    padding: 10px;
+    color: var(--text-medium);
+}
+
+/* ... (rest of the .certification-item img, p, span styles) ... */
+
+/* Responsive adjustments for smaller screens for certifications */
+@media (max-width: 768px) {
+    .certification-logos {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    .certification-item {
+        flex-basis: 100px; /* Smaller base width on mobile */
+        max-width: 120px;
+    }
+    .certification-item img {
+        max-width: 70px;
+    }
+    .certification-item p {
+        font-size: 0.8rem;
+    }
+    .certification-item span {
+        font-size: 0.7rem;
+    }
+}
+
+.certification-logos {
+    display: flex; /* Use flexbox to put items side-by-side */
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+    justify-content: center; /* Center the logos horizontally */
+    align-items: flex-start; /* Align items to the top if they have different heights */
+    gap: 30px; /* Space between each logo item */
+    margin-top: 50px;
+    padding: 0 20px; /* Add horizontal padding to prevent items from touching edges */
+}
+
+.certification-item {
+    display: flex;
+    flex-direction: column; /* Stack logo, text, and span vertically within each item */
+    align-items: center; /* Center content within each item */
+    text-align: center;
+    flex-basis: 150px; /* Give each item a base width, they will shrink if needed */
+    max-width: 180px; /* Max width for each item */
+    padding: 10px; /* Add some padding around each item for breathing room */
+    color: var(--text-medium); /* Lighter text color */
+}
+
+.certification-item img {
+    max-width: 100px; /* Max width for the logo image */
+    height: auto;
+    margin-bottom: 10px;
+    filter: grayscale(100%); /* Grayscale by default */
+    opacity: 0.7; /* Slightly faded */
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.certification-item:hover img {
+    filter: grayscale(0%); /* Show full color on hover */
+    opacity: 1; /* Full opacity on hover */
+}
+
+.certification-item p {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    color: var(--text-dark); /* Certification title more prominent */
+    line-height: 1.2;
+}
+
+.certification-item span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--primary-color); /* Highlight the "Certified" text */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .certification-logos {
+        gap: 20px; /* Reduce gap on smaller screens */
+        padding: 0 10px;
+    }
+    .certification-item {
+        flex-basis: 100px; /* Smaller base width on mobile */
+        max-width: 120px; /* Smaller max width on mobile */
+    }
+    .certification-item img {
+        max-width: 70px; /* Smaller images on mobile */
+    }
+    .certification-item p {
+        font-size: 0.8rem;
+    }
+    .certification-item span {
+        font-size: 0.7rem;
+    }
+}
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0; /* Places the video behind other content */
+    transform: translate(-50%, -50%); /* Centers the video perfectly */
+    object-fit: cover; /* Ensures video covers the area without black bars */
+}
+
+/* Ensure overlay and content are on top of the video */
+.hero-overlay {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 42, 85, 0.7); /* Dark blue overlay for text readability */
+    z-index: 1; /* Overlay on top of video */
+}
+
+.hero-content {
+    position: relative; /* Important for z-index to work */
+    z-index: 2; /* Content on top of overlay */
+    color: var(--white);
+    max-width: 800px;
+    text-align: left; /* Ensure text aligns nicely */
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #d35400; /* Darker shade on hover */
+}
+
+/* Applications Section Styling */
+.applications-section {
+    background-color: var(--background-medium); /* Or var(--background-light) */
+    padding: 80px 0;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid with min width */
+    gap: 30px; /* Space between cards */
+    margin-top: 50px;
+}
+
+.app-card {
+    background-color: var(--card-bg); /* White background for bottom part */
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    overflow: hidden; /* Important for containing images and rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Make card a flex container */
+    flex-direction: column; /* Stack top and details vertically */
+}
+
+.app-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.app-card-top {
+    position: relative; /* Needed for positioning the title over the image */
+    height: 180px; /* Fixed height for the image/top area */
+    background-color: var(--secondary-color); /* Dark background behind image for safety/padding */
+    display: flex; /* Use flex to center the title vertically */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally (for title only) */
+    overflow: hidden; /* Ensure image doesn't overflow */
+}
+
+.app-card-image {
+    width: 100%; /* Image takes full width of its container */
+    height: 100%; /* Image takes full height */
+    object-fit: cover; /* Crop image to cover the area without distortion */
+    position: absolute; /* Position relative to .app-card-top */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Place image behind the title */
+    opacity: 0.7; /* Slight transparency for title readability */
+    transition: opacity 0.3s ease;
+}
+
+.app-card:hover .app-card-image {
+    opacity: 0.85; /* Less transparent on hover */
+}
+
+.app-category-title {
+    position: relative; /* Needed to appear above the image */
+    z-index: 2; /* Place title above the image */
+    color: var(--white); /* White text for readability over dark image */
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 20px; /* Horizontal padding for text */
+}
+
+.app-card-details {
+    padding: 25px;
+    flex-grow: 1; /* Allow details section to grow and take available space */
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card-details h4 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.app-card-details p {
+    font-size: 0.95rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allow paragraph to grow */
+}
+
+.read-more-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block; /* Ensures padding/margin work */
+    margin-top: auto; /* Pushes link to the bottom */
+    transition: color 0.3s ease;
+}
+
+.read-more-link:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* Responsive adjustments for applications section */
+@media (max-width: 768px) {
+    .applications-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+        gap: 20px;
+    }
+    .app-card-top {
+        height: 160px; /* Slightly shorter height on mobile */
+    }
+    .app-category-title {
+        font-size: 1.4rem;
+    }
+    .app-card-details {
+        padding: 20px;
+    }
+    .app-card-details h4 {
+        font-size: 1.15rem;
+    }
+}
+/* ================================================= */
+/* ABOUT US NEW PAGE - Specific Styling */
+/* ================================================= */
+
+/* About Hero Section */
+.about-hero-section {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Adjust height as needed */
+    background-image: url('assets/about_hero_bg.jpg'); /* Your hero background image */
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.about-hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Our Story Section */
+.about-story-section {
+    background-color: var(--background-light); /* White background */
+    padding: 80px 0;
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr; /* Image on left, text on right, text slightly wider */
+    gap: 60px;
+    align-items: flex-start; /* Align content to the top */
+}
+
+.story-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(20px); /* Slight lift for visual interest */
+}
+
+.story-image .responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.story-content .section-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.story-content .lead-statement {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.story-content p {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.story-values-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--medium-grey);
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.value-item i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: var(--primary-color); /* Icon color */
+}
+
+
+/* Our Impact in Numbers / Facts Section */
+.about-facts-section {
+    background-color: var(--background-medium); /* Light grey */
+    padding: 80px 0;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for facts */
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.fact-item {
+    text-align: center;
+    background-color: var(--white);
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.fact-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Main brand color for numbers */
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.fact-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Our Core Values Section */
+.about-values-section {
+    background-color: var(--background-light); /* White background */
+    padding: 80px 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.value-card {
+    background-color: var(--white);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.value-card p {
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+/* ================================================= */
+/* Responsive Adjustments for NEW About Us Page */
+/* ================================================= */
+@media (max-width: 992px) {
+    .about-hero-title {
+        font-size: 2.8rem;
+    }
+    .about-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    .story-grid {
+        grid-template-columns: 1fr; /* Stack story grid on smaller screens */
+        gap: 40px;
+    }
+    .story-image {
+        order: -1; /* Move image above text */
+        transform: translateY(0);
+    }
+    .story-content .section-title {
+        text-align: center;
+    }
+    .story-values-list {
+        grid-template-columns: 1fr; /* Stack values list */
+    }
+    .fact-item {
+        padding: 25px 15px;
+    }
+    .fact-number {
+        font-size: 2.5rem;
+    }
+    .facts-grid {
+        gap: 20px;
+    }
+    .values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero-section {
+        height: 350px;
+    }
+    .about-hero-title {
+        font-size: 2.2rem;
+    }
+    .about-hero-subtitle {
+        font-size: 1rem;
+    }
+    .about-story-section, .about-facts-section, .about-values-section {
+        padding: 60px 0;
+    }
+    .story-content .section-title {
+        font-size: 2rem;
+    }
+    .lead-statement {
+        font-size: 1.1rem;
+    }
+    .fact-number {
+        font-size: 2rem;
+    }
+    .fact-label {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero-section {
+        height: 280px;
+    }
+    .about-hero-title {
+        font-size: 1.8rem;
+    }
+    .about-hero-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+
+/* Main Footer Styling */
+.main-footer {
+    background: var(--footer-dark-bg); /* Use the specific dark blue */
+    color: var(--footer-light-text); /* Use white text as default */
+    padding: 60px 0 20px 0; /* Ample padding */
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.footer-grid {
+    display: grid;
+    /* Define 4 columns: 1.5 fraction for brand, 1fr each for others */
+    grid-template-columns: 1.5fr repeat(3, 1fr); 
+    gap: 30px; /* Space between columns */
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--footer-border-line); /* Separator line */
+}
+
+.footer-grid h3 {
+    color: var(--footer-light-text); /* Headings white */
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.main-footer ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.main-footer ul li {
+    margin-bottom: 10px;
+}
+
+.main-footer ul li a,
+.main-footer p {
+    color: var(--footer-light-link); /* Lighter grey for general text and links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.main-footer ul li p span { /* For bolding labels like "Address:" */
+    font-weight: 600;
+    color: var(--footer-light-text); /* Ensure these labels are white */
+}
+
+.main-footer ul li a:hover {
+    color: var(--footer-link-hover); /* Primary blue on hover */
+}
+
+.footer-brand .footer-logo {
+    height: 60px;
+    /* REMOVE the filter line entirely: */
+    /* filter: brightness(0) invert(1); */ 
+    margin-bottom: 15px;
+}
+
+.footer-brand .company-tagline {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--footer-light-text); /* White for prominence */
+}
+
+/* Footer Contact Info Button */
+.btn-contact-footer {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.btn-contact-footer:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+/* Footer Social Links */
+.footer-social .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.footer-social .social-links img {
+    width: 30px;
+    height: auto;
+    /* REMOVE THE FILTER ENTIRELY if your icon is already white/light */
+    /* filter: invert(100%) brightness(150%); */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}}
+
+.footer-social .social-links img:hover {
+    opacity: 1;
+}
+
+/* Footer Bottom Section (Legal & Copyright) */
+.footer-bottom {
+    padding-top: 20px;
+}
+
+.footer-bottom-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--footer-bottom-text-color); /* Faded white */
+}
+
+.footer-legal a {
+    color: var(--footer-bottom-text-color);
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--footer-link-hover);
+}
+
+/* Scroll to Top Button (if you kept it) */
+.scroll-to-top-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: var(--scroll-to-top-bg);
+    color: var(--scroll-to-top-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, opacity 0.3s;
+}
+.scroll-to-top-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust to 2-3 columns on tablet */
+        text-align: center;
+    }
+    .footer-brand, .footer-links, .footer-contact-info, .footer-social {
+        margin-bottom: 30px;
+    }
+    .footer-brand .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-social .social-links {
+        justify-content: center;
+    }
+    .btn-contact-footer {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-contact-info ul {
+        text-align: center;
+    }
+    .footer-contact-info ul li p span {
+        display: block; /* Stack label and value */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack all columns vertically on mobile */
+        gap: 20px;
+    }
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-legal {
+        margin-bottom: 15px;
+    }
+    .footer-legal a {
+        display: block;
+        margin: 5px 0;
+    }
+}    }
+}
